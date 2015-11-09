@@ -2,5 +2,6 @@
 
 var PalettoTestCase = TestCase("PalettoTestCase");
 
-PalettoTestCase.prototype.testStory1 = function () {
+PalettoTestCase.prototype.histoire1 = function (){
+    assertTrue(PalettoTestCase.initPlateau())
 };
