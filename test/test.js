@@ -2,6 +2,12 @@
 
 var PalettoTestCase = TestCase("PalettoTestCase");
 
-PalettoTestCase.prototype.histoire1 = function (){
-    assertTrue(PalettoTestCase.initPlateau())
+var plateau = new Engine();
+
+PalettoTestCase.prototype.test1 = function (){
+    assertTrue(plateau.initPlateau());
 };
+
+PalettoTestCase.property.test2 = function(){
+
+}
