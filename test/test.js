@@ -8,6 +8,6 @@ PalettoTestCase.prototype.test1 = function (){
     assertTrue(plateau.initPlateau());
 };
 
-PalettoTestCase.property.test2 = function(){
-
+PalettoTestCase.prototype.test2 = function(){
+    assertTrue(plateau.choisirCouleur("Jaune") == "Jaune");
 }
