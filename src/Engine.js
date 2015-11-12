@@ -7,6 +7,7 @@ var Engine = function () {
     var j1,j2,j3,j4,j5,j6;
     var couleurPiece;
     var nbBille = 36;
+    var joueurActif = 1;
 // public methods
     this.initPlateau = function(){
         var validePlateau = false;
@@ -118,5 +119,30 @@ var Engine = function () {
         console.log(plateau);
         nbBille--;
         return nbBille;
+    }
+
+    this.checkNbVoisin = function(couleur){
+        var nbVoisin = 0;
+        for(var ligne=0;ligne<plateau.length;ligne++){
+            for(var colonne=0;colonne<colonne.length;colonne++) {
+                if(ligne != 0 && plateau[ligne-1][colonne] != ""){
+                    nbVoisin++
+                    
+                }
+                if(ligne != plateau.length-1 && plateau[ligne+1][colonne] != ""){
+                    nbVoisin++;
+                }
+                if(colonne != 0 && plateau[ligne][colonne-1] != ""){
+                    nbVoisin++;
+                }
+                if(colonne != plateau.length-1 && plateau[ligne][colonne+1] != ""){
+                    nbVoisin++;
+                }
+             }
+
+        }
+        if(nbVoisin >= 2){
+
+        }
     }
 };
