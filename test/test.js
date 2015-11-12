@@ -9,5 +9,5 @@ PalettoTestCase.prototype.test1 = function (){
 };
 
 PalettoTestCase.prototype.test2 = function(){
-    assertTrue(plateau.choisirBille("jaune"));
+    assertTrue(plateau.choisirBille("jaune  "));
 }

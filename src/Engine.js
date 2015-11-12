@@ -91,14 +91,19 @@ var Engine = function () {
     }
 
     this.choisirBille = function(couleur){
-       if(!plateau[0][0] == couleur)
-         return false;
+        var checkCoin = this.checkCoin(couleur);
+        return checkCoin;
+    }
+
+    this.checkCoin = function(couleur){
+        if(!plateau[0][0] == couleur)
+            return false;
         if(!plateau[0][5] == couleur)
-          return false;
+            return false;
         if(!plateau[5][0] == couleur)
-         return false;
+            return false;
         if(!plateau[5][5] == couleur)
-         return false;
+            return false;
         return true;
     }
 };
