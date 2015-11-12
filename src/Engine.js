@@ -64,6 +64,7 @@ var Engine = function () {
 
             }
         }
+        validePlateau = this.justaPosition(plateau);
         return validePlateau;
     }
 
@@ -87,13 +88,13 @@ var Engine = function () {
                 if(lgn != 0 && plateau[lgn][col] == plateau[lgn-1][col]){
                     return false;
                 }
-                if(lgn != 6 && plateau[lgn][col] == plateau[lgn+1][col]){
+                if(lgn != plateau.length - 1 && plateau[lgn][col] == plateau[lgn+1][col]){
                     return false;
                 }
                 if(col != 0 && plateau[lgn][col] == plateau[lgn][col-1]){
                     return false;
                 }
-                if(col != 6 && plateau[lgn][col] == plateau[lgn][col+1]){
+                if(col != plateau.length-1 && plateau[lgn][col] == plateau[lgn][col+1]){
                     return false;
                 }
 

@@ -6,9 +6,6 @@ var plateau = new Engine();
 
 PalettoTestCase.prototype.test1 = function (){
     assertTrue(plateau.initPlateau());
-    assertTrue(plateau.justaPosition(plateau));
-
-
 };
 /*
 PalettoTestCase.prototype.test2 = function(){
