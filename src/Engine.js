@@ -89,4 +89,16 @@ var Engine = function () {
         }
         return true;
     }
+
+    this.choisirBille = function(couleur){
+       if(!plateau[0][0] == couleur)
+         return false;
+        if(!plateau[0][5] == couleur)
+          return false;
+        if(!plateau[5][0] == couleur)
+         return false;
+        if(!plateau[5][5] == couleur)
+         return false;
+        return true;
+    }
 };
