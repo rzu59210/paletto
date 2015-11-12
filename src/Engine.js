@@ -8,6 +8,7 @@ var Engine = function () {
     var nbBille;
 // public methods
     this.initPlateau = function(){
+        var validePlateau = false;
         console.log("Initialisation du plateau...");
         plateau = new Array(6);
         for(var a=0; a<6;a++){
@@ -56,7 +57,14 @@ var Engine = function () {
         plateau[5][4] = "vert";
         plateau[5][5] = "noir";
         console.log(plateau);
-        return true;
+        for(var i=0;i<plateau.length;i++){
+            for(var y=0; y<plateau.length;y++){
+                if(plateau[i][y] != null)
+                    validePlateau = true;
+
+            }
+        }
+        return validePlateau;
     }
 
    /* this.choisirCouleur = function(uneCouleur){
@@ -71,5 +79,26 @@ var Engine = function () {
     }
     this.vueTableau = function(){
         console.log(plateau);
+    }
+
+    this.justaPosition = function(plateau){
+        for(var lgn = 0; lgn < plateau.length; lgn++){
+            for(var col =0;col < plateau.length; col++){
+                if(lgn != 0 && plateau[lgn][col] == plateau[lgn-1][col]){
+                    return false;
+                }
+                if(lgn != 6 && plateau[lgn][col] == plateau[lgn+1][col]){
+                    return false;
+                }
+                if(col != 0 && plateau[lgn][col] == plateau[lgn][col-1]){
+                    return false;
+                }
+                if(col != 6 && plateau[lgn][col] == plateau[lgn][col+1]){
+                    return false;
+                }
+
+            }
+        }
+        return true;
     }
 };
