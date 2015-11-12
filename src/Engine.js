@@ -68,19 +68,6 @@ var Engine = function () {
         return validePlateau;
     }
 
-   /* this.choisirCouleur = function(uneCouleur){
-        couleur = uneCouleur;
-        console.log("La couleur choisis :"+choisirCouleur);
-        return uneCouleur;
-    }*/
-
-    this.retirerBille = function(position){
-        var x = position.charCodeAt(1) - 49;
-        var y = position.charCodeAt(0) - 97;
-    }
-    this.vueTableau = function(){
-        console.log(plateau);
-    }
 
     this.justaPosition = function(plateau){
         for(var lgn = 0; lgn < plateau.length; lgn++){
