@@ -4,8 +4,9 @@ var Engine = function () {
 
 // private attributes and methods
     var plateau;
-    var choisirCouleur;
-    var nbBille;
+    var j1,j2,j3,j4,j5,j6;
+    var couleurPiece;
+    var nbBille = 36;
 // public methods
     this.initPlateau = function(){
         var validePlateau = false;
@@ -91,6 +92,7 @@ var Engine = function () {
     }
 
     this.choisirBille = function(couleur){
+        couleurPiece = couleur;
         var checkCoin = this.checkCoin(couleur);
         return checkCoin;
     }
@@ -105,5 +107,16 @@ var Engine = function () {
         if(!plateau[5][5] == couleur)
             return false;
         return true;
+    }
+
+    this.retirerPiece = function(position){
+        var x = position.charCodeAt(1) - 49;
+        var y = position.charCodeAt(0) - 97;
+        plateau[x][y] = "";
+        j1 = "1PJ";
+        console.log("x : "+x + "y : " + y);
+        console.log(plateau);
+        nbBille--;
+        return nbBille;
     }
 };
