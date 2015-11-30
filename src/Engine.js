@@ -138,6 +138,28 @@ var Engine = function () {
             nbVoisin++;
         }
         console.log("Nb voisin : "+nbVoisin);
+
+        console.log(listVoisin);
         return nbVoisin<=2;
     }
+    this.getConnected = function(position){
+        var nbVoisin = 0;
+        var x = position.charCodeAt(1) - 49;
+        var y = position.charCodeAt(0) - 97;
+        if(x != 0 && plateau[x-1][y] != ""){
+            nbVoisin++
+        }
+        if(x != plateau.length-1 && plateau[x+1][y] != ""){
+            nbVoisin++;
+        }
+        if(y != 0 && plateau[x][y-1] != ""){
+            nbVoisin++;
+        }
+        if(y != plateau.length-1 && plateau[x][y+1] != ""){
+            nbVoisin++;
+        }
+        if(nbVoisin == 4)
+            return false;
+    }
+
 };

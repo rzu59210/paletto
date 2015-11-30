@@ -20,10 +20,11 @@ PalettoTestCase.prototype.test4 = function(){
     plateau.choisirBille("noir");
     assertTrue(plateau.checkNbVoisin("a1"));
     plateau.retirerPiece("a1");
-    assertTrue(plateau.checkNbVoisin("f1"));
+    assertTrue(plateau.checkNbVoisin("f6"));
     plateau.retirerPiece("f1");
 }
 
 PalettoTestCase.prototype.test5 = function(){
-    
+    assertTrue(plateau.checkNbVoisin("c3"));
+    assertTrue(plateau.getConnected("c3"));
 }
