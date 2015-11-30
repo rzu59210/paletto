@@ -124,8 +124,6 @@ var Engine = function () {
         else
             return false;
         console.log("x : "+x + "y : " + y);
-
-        joueurActif++;
         console.log(nbBille);
         console.log(plateau);
 
@@ -172,7 +170,7 @@ var Engine = function () {
         if(y != plateau.length-1 && plateau[x][y+1] != ""){
             nbVoisin++;
         }
-        if(nbVoisin == 2){
+        if(nbVoisin <= 2){
             if(x!= 0 && x != plateau.length-1 && plateau[x-1][y] != "" && plateau[x+1][y] != "")
                  return false;
             if(y!= 0 && y != plateau.length-1 && plateau[x][y-1] != "" && plateau[x][y+1] != "")

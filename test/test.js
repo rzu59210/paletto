@@ -59,6 +59,7 @@ PalettoTestCase.prototype.test6 = function(){
     assertTrue(plateau.retirerPiece("f1"));
     assertTrue(plateau.retirerPiece("c1"));
 
+
     assertTrue(plateau.choisirBille("rouge"));
     assertTrue(plateau.retirerPiece("e1"));
     assertTrue(plateau.retirerPiece("f3"));
@@ -84,4 +85,20 @@ PalettoTestCase.prototype.test6 = function(){
     assertTrue(plateau.retirerPiece("d5"));
     assertTrue(plateau.retirerPiece("e3"));
 
+}
+
+
+PalettoTestCase.prototype.test7 = function(){
+    assertTrue(plateau.choisirBille("noir"));
+    assertTrue(plateau.choisirBille("a1"));
+    assertTrue(plateau.choisirBille("f6"));
+
+
+    assertTrue(plateau.choisirBille("jaune"));
+    assertTrue(plateau.choisirBille("a2"));
+    assertTrue(plateau.choisirBille("a6"));
+
+    assertTrue(plateau.choisirBille("blanc"));
+    assertTrue(plateau.choisirBille("a5"));
+    assertTrue(plateau.choisirBille("f6"))
 }
