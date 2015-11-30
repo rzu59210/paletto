@@ -25,7 +25,6 @@ PalettoTestCase.prototype.test4 = function(){
 }
 
 PalettoTestCase.prototype.test5 = function(){
-    plateau.choisirBille("bleu");
     assertTrue(plateau.checkNbVoisin("c3"));
     assertTrue(plateau.getConnected("c3"));
 }

@@ -117,7 +117,6 @@ var Engine = function () {
         j1 = "1PJ";
         console.log("x : "+x + "y : " + y);
         nbBille--;
-        joueurActif++;
         console.log(nbBille);
         return nbBille;
     }
@@ -139,10 +138,10 @@ var Engine = function () {
             nbVoisin++;
         }
         console.log("Nb voisin : "+nbVoisin);
+
+        console.log(listVoisin);
         return nbVoisin<=2;
     }
-
-
     this.getConnected = function(position){
         var nbVoisin = 0;
         var x = position.charCodeAt(1) - 49;
@@ -159,21 +158,8 @@ var Engine = function () {
         if(y != plateau.length-1 && plateau[x][y+1] != ""){
             nbVoisin++;
         }
-        if(nbVoisin == 2){
-            if(x!= 0 && x != plateau.length-1 && plateau[x-1][y] != "" && plateau[x+1][y] != "")
-                 return false;
-            if(y!= 0 && y != plateau.length-1 && plateau[x][y-1] != "" && plateau[x][y+1] != "")
-                return false;
-            if(x!= 0 && x != plateau.length-1 && y!= 0 && y != plateau.length-1 && plateau[x+1][y] != "" && plateau[x][y-1] != ""  && y != plateau.length-1 && plateau[x+1][y-1] != "" )
-                return false;
-            if(x!= 0 && x != plateau.length-1 && y!= 0 && y != plateau.length-1 && plateau[x+1][y] != "" && plateau[x][y+1] != "" && plateau[x+1][y+1] != "" )
-                return false;
-            if(x!= 0 && x != plateau.length-1 && y!= 0 && y != plateau.length-1 && plateau[x-1][y] != "" && plateau[x][y-1] != "" && plateau[x-1][y-1] != "" )
-                return false;
-            if(x!= 0 && x != plateau.length-1 && y!= 0 && y != plateau.length-1 && plateau[x-1][y] != "" && plateau[x][y+1] != "" && plateau[x+1][y +1] != "" )
-                return false;
-        }
-         return true;
+        if(nbVoisin == 4)
+            return false;
     }
 
 };
