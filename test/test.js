@@ -17,5 +17,13 @@ PalettoTestCase.prototype.test3 = function(){
 };
 
 PalettoTestCase.prototype.test4 = function(){
+    plateau.choisirBille("noir");
+    assertTrue(plateau.checkNbVoisin("a1"));
+    plateau.retirerPiece("a1");
+    assertTrue(plateau.checkNbVoisin("f1"));
+    plateau.retirerPiece("f1");
+}
 
+PalettoTestCase.prototype.test5 = function(){
+    
 }

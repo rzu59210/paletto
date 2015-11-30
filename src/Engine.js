@@ -116,33 +116,28 @@ var Engine = function () {
         plateau[x][y] = "";
         j1 = "1PJ";
         console.log("x : "+x + "y : " + y);
-        console.log(plateau);
         nbBille--;
+        console.log(nbBille);
         return nbBille;
     }
 
-    this.checkNbVoisin = function(couleur){
+    this.checkNbVoisin = function(position){
         var nbVoisin = 0;
-        for(var ligne=0;ligne<plateau.length;ligne++){
-            for(var colonne=0;colonne<colonne.length;colonne++) {
-                if(ligne != 0 && plateau[ligne-1][colonne] != ""){
-                    nbVoisin++
-                    
-                }
-                if(ligne != plateau.length-1 && plateau[ligne+1][colonne] != ""){
-                    nbVoisin++;
-                }
-                if(colonne != 0 && plateau[ligne][colonne-1] != ""){
-                    nbVoisin++;
-                }
-                if(colonne != plateau.length-1 && plateau[ligne][colonne+1] != ""){
-                    nbVoisin++;
-                }
-             }
-
+        var x = position.charCodeAt(1) - 49;
+        var y = position.charCodeAt(0) - 97;
+        if(x != 0 && plateau[x-1][y] != ""){
+            nbVoisin++
         }
-        if(nbVoisin >= 2){
-
+        if(x != plateau.length-1 && plateau[x+1][y] != ""){
+            nbVoisin++;
         }
+        if(y != 0 && plateau[x][y-1] != ""){
+            nbVoisin++;
+        }
+        if(y != plateau.length-1 && plateau[x][y+1] != ""){
+            nbVoisin++;
+        }
+        console.log("Nb voisin : "+nbVoisin);
+        return nbVoisin<=2;
     }
 };
