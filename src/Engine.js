@@ -4,13 +4,14 @@ var Engine = function () {
 
 // private attributes and methods
     var plateau;
-    var j1,j2,j3,j4,j5,j6;
+    var joueur;
     var couleurPiece;
-    var nbBille = 36;
+    var nbBille;
     var joueurActif = 1;
 // public methods
     this.initPlateau = function(){
         var validePlateau = false;
+        nbBille = 36;
         console.log("Initialisation du plateau...");
         plateau = new Array(6);
         for(var a=0; a<6;a++){
@@ -93,8 +94,10 @@ var Engine = function () {
     }
 
     this.choisirBille = function(couleur){
+        joueur = "j1";
         couleurPiece = couleur;
         var checkCoin = this.checkCoin(couleur);
+        this.changerDeJoueur();
         return checkCoin;
     }
 
@@ -113,12 +116,22 @@ var Engine = function () {
     this.retirerPiece = function(position){
         var x = position.charCodeAt(1) - 49;
         var y = position.charCodeAt(0) - 97;
-        plateau[x][y] = "";
-        j1 = "1PJ";
+        if(this.checkNbVoisin(position) && this.getConnected(position)){
+            plateau[x][y] = "";
+            nbBille--;
+            return true;
+        }
+        else
+            return false;
         console.log("x : "+x + "y : " + y);
-        nbBille--;
+
         joueurActif++;
         console.log(nbBille);
+        console.log(plateau);
+
+    }
+
+    this.getBille = function(){
         return nbBille;
     }
 
@@ -173,7 +186,19 @@ var Engine = function () {
             if(x!= 0 && x != plateau.length-1 && y!= 0 && y != plateau.length-1 && plateau[x-1][y] != "" && plateau[x][y+1] != "" && plateau[x+1][y +1] != "" )
                 return false;
         }
-         return true;
+        if(nbVoisin <=2)
+            return true;
+        return false;
+    }
+    this.changerDeJoueur = function(){
+        if(joueur == "j1")
+            joueur = "j2";
+        if(joueur == "j2")
+            joueur == "j1";
+        return joueur;
     }
 
+    this.partieGagner = function () {
+
+    }
 };
